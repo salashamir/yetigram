@@ -1,13 +1,149 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@200;300;400&display=swap");
+
+:root {
+  --primary: #f3b7e9;
+  --secondary: #02b7ff;
+  --error: #ff6464;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/* base styles & title */
+body {
+  font-family: "Noto Serif Display", serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--secondary);
+}
+.App {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.title h1 {
+  margin-top: 2.4rem;
+  color: var(--primary);
+  font-size: 5.2rem;
+  letter-spacing: 2px;
+  font-weight: normal;
+  line-height: 1;
+}
+.title h2,
+.title p {
+  text-align: center;
+}
+.title h2 {
+  margin-top: 60px;
+  font-size: 4.2rem;
+  margin-bottom: 2rem;
+}
+
+/* upload form styles */
+form {
+  margin: 20px auto 0;
+  /* background-color: #d4f1fd; */
+  text-align: center;
+}
+label input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+label {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--primary);
+  border-radius: 50%;
+  margin: 10px auto;
+  line-height: 30px;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 24px;
+  transition: all 0.3s;
+}
+label:hover {
+  background: var(--primary);
+  color: #fff;
+}
+.output {
+  height: 6rem;
+  font-size: 1.8rem;
+}
+.error {
+  color: var(--error);
+}
+/* progress bar styles */
+.progress-bar {
+  width: 100%;
+  height: 0.7rem;
+  background: var(--primary);
+  margin-top: 2rem;
+  border-radius: 5px;
+}
+
+/* image grid styles */
+.img-grid {
+  margin: 2rem auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+@media (max-width: 800px) {
+  .img-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .img-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.img-wrap {
+  overflow: hidden;
+  height: 0;
+  padding: 50% 0;
+  position: relative;
+  opacity: 0.8;
+}
+
+.img-wrap img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* modal styles */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.backdrop img {
+  display: block;
+  max-width: 60%;
+  max-height: 80%;
+  margin: 60px auto;
+  box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.3);
+  border: 3px solid #fff;
 }
